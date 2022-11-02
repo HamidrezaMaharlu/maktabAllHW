@@ -9,6 +9,19 @@ function generator(key) {
 
 
 const nameSetter = generator("name").bind(user)
-const ageSetter = generator("age").bind(user)
 nameSetter("jack");
-console.log(ageSetter(21));
+console.log(user)
+
+
+//--------------solution 2----------------
+function setterGenerator(obj, key) {
+    return function (val) {
+        function test() {
+            this[key] = val;
+        }
+        return test.call(obj)
+    }
+}
+ const nameSetter2 =setterGenerator(user,"name2")
+nameSetter2("ali")
+console.log(user)
