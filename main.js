@@ -77,7 +77,7 @@ function Calculator() {
             })
             //merge number and operator
             let [num1, num2] = arr
-            return this.calc[operate](num1,num2)
+            return this.calc[operate](num1, num2)
         },
         addMethod(name, func) {
             this.calc[name] = func;
@@ -97,11 +97,11 @@ let result = powerCalc.calculate("2 ** 3");
 // console.log(result); // 8
 
 //--------------------------------q1-5-------------------------
-let john = { name: "John", surname: "Smith", id: 1 };
-let pete = { name: "Pete", surname: "Hunt", id: 2 };
-let mary = { name: "Mary", surname: "Key", id: 3 };
+let john = {name: "John", surname: "Smith", id: 1};
+let pete = {name: "Pete", surname: "Hunt", id: 2};
+let mary = {name: "Mary", surname: "Key", id: 3};
 
-let users = [ john, pete, mary ];
+let users = [john, pete, mary];
 
 let usersMapped = users.map(user => ({
     fullName: `${user.name} ${user.surname}`,
@@ -113,13 +113,13 @@ let usersMapped = users.map(user => ({
 
 //----------------------------q1-6-----------------------------
 
-let johnn = { name: "John", age: 25 };
-let petee = { name: "Pete", age: 30 };
-let maryy = { name: "Mary", age: 29 };
-let arr = [ johnn, petee, maryy ];
+let johnn = {name: "John", age: 25};
+let petee = {name: "Pete", age: 30};
+let maryy = {name: "Mary", age: 29};
+let arr = [johnn, petee, maryy];
 
 function getAverageAge(arr) {
-return arr.reduce((acc,currentItem)=>acc+currentItem.age,0)/arr.length
+    return arr.reduce((acc, currentItem) => acc + currentItem.age, 0) / arr.length
 }
 
 // console.log( getAverageAge(arr) ); // (25 + 30 + 29) / 3 = 28
@@ -128,9 +128,9 @@ return arr.reduce((acc,currentItem)=>acc+currentItem.age,0)/arr.length
 
 function getSecondsToday() {
     const now = new Date();
-    const today =new Date(now.getFullYear(),now.getMonth(),now.getDate())
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate())
     let result = now - today;
-    console.log(`pass Seconds: ${result/1000}`)
+    console.log(`pass Seconds: ${result / 1000}`)
     console.log(`pass Hours: ${new Date(result).getUTCHours()} hours`)
     console.log(`pass Minutes: ${new Date(result).getUTCMinutes()} minutes`)
 }
@@ -165,9 +165,35 @@ function formatDate(date) {
         return `${dateMonth}.${month}.${year} ${hour}:${minutes}`
     }
 }
+
 // console.log( formatDate(new Date(new Date - 1)) ); // "right now"
 // console.log( formatDate(new Date(new Date - 5 * 60 * 1000)) ); // "5min. ago"
 // yesterday's date like 31.12.16 20:00
 // console.log( formatDate(new Date(new Date - 86400 * 1000)) );
 
 //----------------------------------q1-9------------------------
+function printNumbers(from, to) {
+    const intervalId = setInterval(() => {
+        console.log(from);
+        from++
+        if (from === to+1) {
+            clearInterval(intervalId)
+        }
+
+    }, 1000)
+
+}
+function printNumbersSettimeOut(from,to) {
+    setTimeout(function show() {
+        console.log(from)
+        from++
+        const setTimeOutIdInner=setTimeout(show,1000)
+        if (from === to+1) {
+            clearTimeout(setTimeOutIdInner)
+        }
+
+    },1000)
+}
+
+// printNumbers(1, 5)
+// printNumbersSettimeOut(7, 8)
