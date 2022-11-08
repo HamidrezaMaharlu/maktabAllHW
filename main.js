@@ -13,7 +13,7 @@ function check() {
         }
 
         //loop to check array is maghloob or not and loop to the middle of array
-        for (let i = 1; i <= Math.ceil((arr.length-1)/2); i++) {
+        for (let i = 1; i <= Math.ceil((arr.length - 1) / 2); i++) {
             console.log(i)
             if (arr.at(i) !== arr.at(-i)) {
                 result = "Maghlob nist!!!"
@@ -27,6 +27,20 @@ function check() {
     } else {
         alert("you didnt enter a a valid number");
     }
-    
+
 }
-check()
+
+// check()
+// --------------------------------q1-2---------------------------------
+function filterRange(arr, min, max) {
+    //copy it and change new one
+    const newArr = [...arr];
+    return newArr.filter(item => item >= min && item <= max)
+}
+let arr = [5, 3, 8, 1];
+let filtered = filterRange(arr, 1, 4);
+// alert(filtered); // 3,1 (matching values)
+// alert(arr); // 5,3,8,1 (not modified)
+
+//---------------------------------q1-3---------------------------------
+
