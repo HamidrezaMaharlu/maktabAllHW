@@ -138,3 +138,36 @@ function getSecondsToday() {
 // getSecondsToday() // (3600 * 10)
 
 //-------------------------------q1-8-------------------------------
+function formatDate(date) {
+    let dateMonth = date.getDate();
+    let month = date.getMonth() + 1;
+    let year = date.getFullYear();
+    let hour = date.getHours();
+    let minutes = date.getMinutes();
+    let differenceInMs = new Date() - date;
+    let differenceSec = Math.round(differenceInMs / 1000);
+    let differenceMin = differenceSec / 60;
+    let differenceHour = differenceMin / 60;
+
+    // add 0 to month date hour and min which are 1 digit for yesterday
+    month = month < 10 ? '0' + month : month;
+    dateMonth = dateMonth < 10 ? '0' + dateMonth : dateMonth;
+    hour = hour < 10 ? '0' + hour : hour;
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+
+    if (differenceSec < 1) {
+        return 'right now';
+    } else if (differenceMin < 1) {
+        return `${differenceSec} sec. ago`
+    } else if (differenceHour < 1) {
+        return `${differenceMin} min. ago`
+    } else {
+        return `${dateMonth}.${month}.${year} ${hour}:${minutes}`
+    }
+}
+// console.log( formatDate(new Date(new Date - 1)) ); // "right now"
+// console.log( formatDate(new Date(new Date - 5 * 60 * 1000)) ); // "5min. ago"
+// yesterday's date like 31.12.16 20:00
+// console.log( formatDate(new Date(new Date - 86400 * 1000)) );
+
+//----------------------------------q1-9------------------------
