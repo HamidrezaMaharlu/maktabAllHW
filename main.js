@@ -125,3 +125,16 @@ return arr.reduce((acc,currentItem)=>acc+currentItem.age,0)/arr.length
 // console.log( getAverageAge(arr) ); // (25 + 30 + 29) / 3 = 28
 
 //-------------------------------q1-7-----------------------------
+
+function getSecondsToday() {
+    const now = new Date();
+    const today =new Date(now.getFullYear(),now.getMonth(),now.getDate())
+    let result = now - today;
+    console.log(`pass Seconds: ${result/1000}`)
+    console.log(`pass Hours: ${new Date(result).getUTCHours()} hours`)
+    console.log(`pass Minutes: ${new Date(result).getUTCMinutes()} minutes`)
+}
+
+// getSecondsToday() // (3600 * 10)
+
+//-------------------------------q1-8-------------------------------
