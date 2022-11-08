@@ -33,14 +33,26 @@ function check() {
 // check()
 // --------------------------------q1-2---------------------------------
 function filterRange(arr, min, max) {
-    //copy it and change new one
-    const newArr = [...arr];
-    return newArr.filter(item => item >= min && item <= max)
+    return arr.filter(item => item >= min && item <= max)
 }
-let arr = [5, 3, 8, 1];
-let filtered = filterRange(arr, 1, 4);
+
+let arrQ12 = [5, 3, 8, 1];
+let filtered = filterRange(arrQ12, 1, 4);
 // alert(filtered); // 3,1 (matching values)
-// alert(arr); // 5,3,8,1 (not modified)
+// alert(arrQ12); // 5,3,8,1 (not modified)
 
 //---------------------------------q1-3---------------------------------
+function filterRangeInPlace(arr, min, max) {
+    arr.forEach((item, index) => {
+        if (item < min || item > max) {
+            arr.splice(index,1)
+        }
+    })
+}
+
+let arrQ13 = [5, 3, 8, 1];
+filterRangeInPlace(arrQ13, 1, 4); // removed the numbers except from 1 to 4
+console.log(arrQ13); // [3, 1]
+
+//---------------------------------q1-4----------------------------------
 
