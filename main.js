@@ -108,7 +108,20 @@ let usersMapped = users.map(user => ({
     id: user.id
 }));
 
-console.log( usersMapped[0].id ); // 1
-console.log( usersMapped[0].fullName ); // John Smith
+// console.log( usersMapped[0].id ); // 1
+// console.log( usersMapped[0].fullName ); // John Smith
 
 //----------------------------q1-6-----------------------------
+
+let johnn = { name: "John", age: 25 };
+let petee = { name: "Pete", age: 30 };
+let maryy = { name: "Mary", age: 29 };
+let arr = [ johnn, petee, maryy ];
+
+function getAverageAge(arr) {
+return arr.reduce((acc,currentItem)=>acc+currentItem.age,0)/arr.length
+}
+
+// console.log( getAverageAge(arr) ); // (25 + 30 + 29) / 3 = 28
+
+//-------------------------------q1-7-----------------------------
