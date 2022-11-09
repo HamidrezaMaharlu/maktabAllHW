@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.circle {
+    @apply relative;
+}
+.first-circle{
+    @apply w-16 h-16 md:w-24 md:h-24 rounded-full bg-transparent absolute -top-32 border-2 border-blue-200 md:-top-48 lg:top-6
+}
+.second-circle {
+    @apply w-8 h-8 md:w-12 md:h-12 rounded-full bg-transparent absolute -top-36 left-8 md:-top-52 md:left-16 border-2 border-red-400 lg:top-2
+}
+.third-circle{
+    @apply w-8 h-8 md:w-16 md:h-16 lg:w-12 lg:h-12 rounded-full absolute bg-blue-200 absolute -top-12 left-24 md:-top-14 md:left-32 lg:top-24
+}
+
+
+
+
+
+
