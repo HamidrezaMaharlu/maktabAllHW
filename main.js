@@ -111,3 +111,9 @@ sectionQ7.addEventListener("click",function (e) {
 })
 
 //-------------------------------q1-8-----------------------------
+const sectionQ8Title = document.querySelector(".Q8 .title");
+const ul = document.querySelector(".Q8 ul")
+sectionQ8Title.addEventListener("click", function () {
+    ul.classList.toggle("show");
+})
+//--------------------------------q1-9---------------------------

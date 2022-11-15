@@ -1,3 +1,8 @@
+body {
+    max-width: 700px;
+    margin: 20px auto;
+    border:1px solid lightgray;
+}
 .notif {
     position: absolute;
     z-index: 1;
@@ -11,4 +16,13 @@
 .welcome {
     background: #43807c;
     color: white;
+}
+.title {
+    cursor: pointer;
+}
+.Q8 ul {
+    display: none;
+}
+.Q8 .nav ul.show {
+    display: block;
 }
