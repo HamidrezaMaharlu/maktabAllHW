@@ -12,4 +12,10 @@ const firstInput = formSearch.querySelector("input")
 const allInputs = formSearch.querySelectorAll("input")
 const lastInput = allInputs[allInputs.length - 1];
 
-//-------------------------q2-----------------------------------------
+//----------------------------q2-----------------------------------------
+//select the links
+const externalLink = document.querySelectorAll(`a[href*="://"]:not([href^="http://internal.com"])`)
+//loop over array and change style
+externalLink.forEach(item=>item.style.color="orange")
+
+//-----------------------------q3--------------------------------------
