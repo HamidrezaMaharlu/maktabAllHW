@@ -117,3 +117,9 @@ sectionQ8Title.addEventListener("click", function () {
     ul.classList.toggle("show");
 })
 //--------------------------------q1-9---------------------------
+const cards = document.querySelectorAll(".Q9 .card");
+cards.forEach(item=>{
+    item.insertAdjacentHTML("afterbegin", `<button class="close">X</button>`);
+    item.firstChild.addEventListener("click",()=>item.remove())
+});
+//---------------------------------q1-10-----------------------------
