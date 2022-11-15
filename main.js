@@ -41,3 +41,40 @@ function makeList() {
 // makeList();
 
 // ------------------------------q1-4-------------------------------
+let data = {
+    "Fish": {
+        "trout": {},
+        "salmon": {}
+    },
+    "Tree": {
+        "Huge": {
+            "sequoia": {},
+            "oak": {}
+        },
+        "Flowering": {
+            "apple tree": {},
+            "magnolia": {}
+        }
+    }
+}
+let sectionQ4 = document.querySelector(".Q4")
+
+
+function createLi(data) {
+    let li = "";
+    let ul;
+    for (const key in data) {
+        li+=`<li>${key}${createLi(data[key])}</li>`;
+    }
+    if (li) {
+       ul= `<ul>${li}</ul>`
+    }
+    return ul || ""
+}
+
+function createTree(where, data) {
+where.innerHTML= createLi(data)
+}
+
+createTree(sectionQ4, data);
+//-----------------------------q1-5-----------------------
