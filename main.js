@@ -78,3 +78,36 @@ where.innerHTML= createLi(data)
 
 createTree(sectionQ4, data);
 //-----------------------------q1-5-----------------------
+function clear(elem) {
+    elem.innerHTML = '';
+}
+// clear(elem)
+// -------------------------------q1-6------------------------
+function showNotification({top = 0, right = 0, className="welcome", html="hello"}={}) {
+
+    const div = document.createElement('div');
+    div.className = "notif";
+    if (className) {
+        div.classList.add(className);
+    }
+
+    div.style.top = top + 'px';
+    div.style.right = right + 'px';
+
+    div.innerHTML = html;
+    document.body.append(div);
+    setTimeout(() => div.remove(), 3000);
+}
+showNotification()
+//--------------------------------q1-7-----------------------------
+//select the section
+const sectionQ7 = document.querySelector(".Q7");
+const text = sectionQ7.querySelector("#text");
+//add event listner
+sectionQ7.addEventListener("click",function (e) {
+    if(e.target.id !== "hider") return
+    text.style.display="none"
+    setTimeout(() => e.target.style.display = "none", 1200);
+})
+
+//-------------------------------q1-8-----------------------------
