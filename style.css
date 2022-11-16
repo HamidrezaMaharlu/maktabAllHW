@@ -1,0 +1,81 @@
+:root{
+    --bs-primary:#64a19d
+}
+.header {
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: 35rem;
+    padding: 15rem 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("images/1.jpg");
+    background-attachment: scroll;
+    background-size: cover;
+}
+
+header h1 {
+    font-size: 2rem;
+    letter-spacing: 0.8rem;
+    color: lightgray;
+}
+
+.btn-primary {
+    background-color: #64a19d;
+    border: #64a19d;
+}
+
+.btn-primary:hover {
+    background-color: #55807e;
+}
+
+#about {
+    background: linear-gradient(to bottom, #000 0%, rgba(0, 0, 0, 0.9) 75%, rgba(0, 0, 0, 0.8) 100%);
+}
+
+#about img {
+    max-width: 70%;
+    height: auto;
+}
+.projects .project-text {
+    padding: 3rem;
+    font-size: 90%;
+}
+.contact .card hr {
+    border-color: #64a19d;
+    border-width: 0.25rem;
+    width: 3rem;
+}
+.contact .card {
+    border: 0;
+    border-bottom: 0.25rem solid #64a19d;
+}
+@media (min-width: 1000px) {
+    #forBorder {
+        border-left:  0.5rem solid #64a19d
+    }
+    header h1 {
+        font-size: 5rem;
+        letter-spacing: 0.8rem;
+        color: lightgray;
+    }
+}
+.subscribe {
+    padding: 10rem 0;
+    background: url("images/2.jpg") no-repeat scroll center;
+    background-size: cover;
+    font-size: 80%;
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+    border: 0;
+}
+.bi-send {
+    font-size: 3rem;
+}
+.contact .bi {
+    font-size: 2rem;
+    color: #64a19d
+}
+.fixed-header {
+    background-color: white;
+}
