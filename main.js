@@ -64,26 +64,28 @@ function createLi(data) {
     let li = "";
     let ul;
     for (const key in data) {
-        li+=`<li>${key}${createLi(data[key])}</li>`;
+        li += `<li>${key}${createLi(data[key])}</li>`;
     }
     if (li) {
-       ul= `<ul>${li}</ul>`
+        ul = `<ul>${li}</ul>`
     }
     return ul || ""
 }
 
 function createTree(where, data) {
-where.innerHTML= createLi(data)
+    where.innerHTML = createLi(data)
 }
 
 createTree(sectionQ4, data);
+
 //-----------------------------q1-5-----------------------
 function clear(elem) {
     elem.innerHTML = '';
 }
+
 // clear(elem)
 // -------------------------------q1-6------------------------
-function showNotification({top = 0, right = 0, className="welcome", html="hello"}={}) {
+function showNotification({top = 0, right = 0, className = "welcome", html = "hello"} = {}) {
 
     const div = document.createElement('div');
     div.className = "notif";
@@ -98,15 +100,16 @@ function showNotification({top = 0, right = 0, className="welcome", html="hello"
     document.body.append(div);
     setTimeout(() => div.remove(), 3000);
 }
+
 showNotification()
 //--------------------------------q1-7-----------------------------
 //select the section
 const sectionQ7 = document.querySelector(".Q7");
 const text = sectionQ7.querySelector("#text");
 //add event listner
-sectionQ7.addEventListener("click",function (e) {
-    if(e.target.id !== "hider") return
-    text.style.display="none"
+sectionQ7.addEventListener("click", function (e) {
+    if (e.target.id !== "hider") return
+    text.style.display = "none"
     setTimeout(() => e.target.style.display = "none", 1200);
 })
 
@@ -118,8 +121,41 @@ sectionQ8Title.addEventListener("click", function () {
 })
 //--------------------------------q1-9---------------------------
 const cards = document.querySelectorAll(".Q9 .card");
-cards.forEach(item=>{
+cards.forEach(item => {
     item.insertAdjacentHTML("afterbegin", `<button class="close">X</button>`);
-    item.firstChild.addEventListener("click",()=>item.remove())
+    item.firstChild.addEventListener("click", () => item.remove())
 });
 //---------------------------------q1-10-----------------------------
+let tooltipElem;
+
+document.onmouseover = function (event) {
+    let target = event.target;
+    let tooltipHtml = target.dataset.tooltip;
+    if (!tooltipHtml) return;
+    tooltipElem = document.createElement('div');
+    tooltipElem.className = 'tooltip';
+    tooltipElem.innerHTML = tooltipHtml;
+    document.body.append(tooltipElem);
+// get place
+    let getPlaceOfElement = target.getBoundingClientRect();
+    console.log(getPlaceOfElement)
+    let left = getPlaceOfElement.left + (target.offsetWidth - tooltipElem.offsetWidth) / 2;
+    if (left < 0) left = 0; // don't cross the left  edge
+
+    let top = getPlaceOfElement.top - tooltipElem.offsetHeight - 5;
+    if (top < 0) { // if crossing the top  edge, show below instead
+        top = getPlaceOfElement.top + target.offsetHeight + 5;
+    }
+
+    tooltipElem.style.left = left + 'px';
+    tooltipElem.style.top = top + 'px';
+};
+
+document.onmouseout = function (e) {
+
+    if (tooltipElem) {
+        tooltipElem.remove();
+        tooltipElem = null;
+    }
+
+};
